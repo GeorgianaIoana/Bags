@@ -64,7 +64,7 @@
   th {
     background: #4a4746;
     color: $color-light;
-    font-family: "SF Pro";
+    font-family: $font-cart;
     text-transform: uppercase;
     padding: $space-md 0;
     font-size: 18px;
@@ -75,7 +75,7 @@
 
   td {
     color: #000;
-    font-family: "SF Pro";
+    font-family: $font-cart;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
