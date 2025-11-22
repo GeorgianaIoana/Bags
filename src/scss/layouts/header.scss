@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../base/fonts" as *;
 
 #header {
   position: sticky;
@@ -9,7 +10,7 @@
 
 .header {
   background-color: $color-light;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   box-shadow: 0 4px 10px rgba($color-dark, 0.05);
 
   &-top {
@@ -97,7 +98,7 @@
 
     span {
       color: $color-primary;
-      font-family: Montserrat, sans-serif;
+      font-family: $font-primary;
       font-size: 30px;
       font-weight: $font-weight-bold;
     }
@@ -176,7 +177,7 @@
     padding: 20px 0;
 
     ul {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-primary;
       font-size: 18px;
       display: flex;
       list-style: none;

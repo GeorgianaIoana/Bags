@@ -181,8 +181,9 @@ function renderBestSets() {
     }
 
     const randomSets = luggageSets
-        .sort(() => Math.random() - 0.5)
+        .toSorted(() => Math.random() - 0.5)
         .slice(0, 5);
+
 
     bestSetsContainer.innerHTML = randomSets
         .map(

@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../base/fonts" as *;
 
 .cart-banner {
   position: relative;
@@ -28,7 +29,7 @@
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: Montserrat, sans-serif;
+  font-family: $font-primary;
   font-size: $font-size-4xl;
   font-weight: $font-weight-bold;
   color: $color-light;
@@ -51,7 +52,7 @@
 .cart-section {
   max-width: 1300px;
   margin: 70px auto;
-  font-family: Montserrat, sans-serif;
+  font-family: $font-primary;
 }
 
 .cart-table {
@@ -151,7 +152,7 @@
     padding-top: $space-xs;
     padding-bottom: $space-xs;
     color: $color-light;
-    font-family: Montserrat, sans-serif;
+    font-family: $font-primary;
     font-size: $font-size-base;
     font-style: normal;
     font-weight: $font-weight-bold;
@@ -166,7 +167,7 @@
   }
 
   .total {
-    font-family: Montserrat, sans-serif;
+    font-family: $font-primary;
     font-weight: $font-weight-bold;
     margin-bottom: $space-lg;
 
@@ -234,10 +235,6 @@
   .cart-table td:nth-child(6) {
     display: none;
   }
-
-  // img {
-  //   width: 10px;
-  // }
 }
 
 .discount-row {
@@ -262,10 +259,6 @@
     td {
       padding-left: 1px;
       padding-right: 2px;
-    }
-
-    th,
-    td {
       white-space: nowrap;
     }
 
@@ -343,7 +336,6 @@
     padding-top: 70px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     margin-top: 0px;
-    margin-left: 0px;
     margin-right: auto;
     margin-left: auto;
 

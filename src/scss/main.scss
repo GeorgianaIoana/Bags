@@ -222,7 +222,7 @@ body {
         }
 
         p {
-          font-family: "Montserrat", sans-serif;
+          font-family: $font-primary;
           max-width: 600px;
           margin-top: $space-sm;
           margin-bottom: $space-md;
@@ -499,10 +499,6 @@ body {
     margin-right: auto;
     margin-left: auto;
 
-    .suitcase-slider {
-      padding-right: 10px;
-    }
-
     .section-heading {
       margin-bottom: 48px;
 
@@ -517,6 +513,7 @@ body {
 
     .suitcase-slider {
       padding-left: 0px;
+      padding-right: 10px;
       .suitcase-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;

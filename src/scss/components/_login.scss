@@ -27,7 +27,7 @@
   background: $color-light;
   padding: $space-xl;
   padding-bottom: $space-lg;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   box-sizing: border-box;
   border-radius: 6px;
   z-index: 1000;
@@ -67,7 +67,7 @@
     height: 44px;
     border: 2px solid $color-primary;
     font-size: $font-size-sm;
-    font-family: "Montserrat";
+    font-family: $font-primary;
     outline: none;
     border-radius: 2px;
     color: $color-dark;

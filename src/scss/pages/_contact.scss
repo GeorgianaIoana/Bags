@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../base/fonts" as *;
 
 .contact-banner {
   position: relative;
@@ -10,7 +11,7 @@
   justify-content: center;
   text-align: center;
   color: $color-light;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   overflow: hidden;
 
   .contact-banner-image {
@@ -48,7 +49,7 @@
     p {
       font-size: $font-size-base;
       font-weight: $font-weight-regular;
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-primary;
       color: #e9e9ed;
 
       @include respond(mobile) {
@@ -91,13 +92,13 @@
       margin-right: auto;
 
       h1 {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-primary;
         font-size: $font-size-2xl;
         margin-bottom: $space-xs;
       }
 
       p {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-primary;
         font-size: $font-size-sm;
       }
     }
@@ -129,14 +130,14 @@
     }
 
     h3 {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-primary;
       font-size: $font-size-base;
       font-weight: 600;
       margin-bottom: 10px;
     }
 
     p {
-      font-family: "Montserrat", sans-serif;
+      font-family: $font-primary;
       font-size: $font-size-base !important;
       color: $color-muted;
     }
@@ -187,7 +188,7 @@
 
 .feedback-form {
   grid-column: span 6;
-  font-family: Montserrat, sans-serif;
+  font-family: $font-primary;
   max-width: 90%;
 
   h2 {

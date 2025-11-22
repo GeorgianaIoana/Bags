@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../base/fonts" as *;
 
 .catalog-layout {
   max-width: 1300px;
@@ -8,7 +9,7 @@
   grid-template-columns: 3fr 1fr;
   gap: 32px;
   padding: $space-m 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   overflow-x: hidden;
 }
 
@@ -110,7 +111,7 @@
 
 .filter-title {
   font-size: 17px;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   font-weight: 700;
   color: #504e4a;
   margin: 0;
@@ -121,15 +122,11 @@
   height: 40px;
   border: 2px solid #e9e9ed;
   font-size: 13px;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   color: #727174;
   padding: 0 12px;
-  background: #fff
-    url("data:image/svg+xml,\
-  <svg width='8' height='4' xmlns='http://www.w3.org/2000/svg'>\
-  <path d='M0 0 L8 0 L4 4 Z' fill='%23504E4A'/>\
-  </svg>")
-    no-repeat right 12px center;
+  background: #fff url("data:image/svg+xml,<svg width='8' height='4' xmlns='http://www.w3.org/2000/svg'><path d='M0 0 L8 0 L4 4 Z' fill='%23504E4A'/></svg>")
+  no-repeat right 12px center;
   background-size: 8px 4px;
   appearance: none;
   cursor: pointer;
@@ -178,7 +175,7 @@
   background: #b92770;
   color: #fff;
   border: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
@@ -379,52 +376,6 @@
   font-family: "Helvetica Neue", sans-serif;
 }
 
-.prev-page,
-.next-page {
-  width: 120px;
-  height: 46px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border: 2px solid #b92770;
-  background: transparent;
-  border-radius: 6px;
-  color: #000;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-transform: uppercase;
-  transition: 0.2s;
-}
-
-.next-page::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #000;
-  border-top: 2px solid #000;
-  transform: rotate(45deg);
-}
-
-.prev-page::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-left: 2px solid #000;
-  border-bottom: 2px solid #000;
-  transform: rotate(45deg);
-}
-
-.pagination-info {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
 .pagination-info .page-btn {
   all: unset;
   cursor: pointer;
@@ -435,17 +386,6 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
-}
-
-.pagination-info .active {
-  background: #b92770 !important;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 6px !important;
-  color: #fff !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
 }
 
 .prev-page,
@@ -465,7 +405,6 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 0;
 }
 
 .prev-page::before {

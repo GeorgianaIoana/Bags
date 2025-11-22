@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "../base/fonts" as *;
 
 .product-page {
   max-width: 1320px;
@@ -8,7 +9,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 60px;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
 
   .product-gallery {
     .main-image img {
@@ -188,7 +189,7 @@
 .product-tabs {
   max-width: 1320px;
   margin: 80px auto;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   color: #504e4a;
 
   .tab-header {
@@ -428,7 +429,7 @@
       }
 
       .btn-submit {
-        font-family: "Montserrat", sans-serif;
+        font-family: $font-primary;
         background: $color-primary;
         color: #fff;
         font-size: 14px;
