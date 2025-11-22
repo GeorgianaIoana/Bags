@@ -112,7 +112,7 @@ addToCartBtn.addEventListener('click', () => {
     const selectedSize = sizeSelect.value;
     const selectedColor = colorSelect.value;
     const selectedCategory = categorySelect.value;
-
+    
     if (
         selectedSize === 'Choose option' ||
         selectedColor === 'Choose option' ||

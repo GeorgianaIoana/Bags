@@ -10,12 +10,12 @@
   "author": "Georgiana Stanciu",
   "type": "commonjs",
   "main": "index.js",
-  "build": "echo \"Dummy build script required for Autocode Compile\"",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:sass": "sass src/scss:src/dist/css --no-source-map --style=compressed",
     "watch:sass": "sass --watch src/scss:src/dist/css --no-source-map",
     "serve": "live-server --open=.",
+    "build": "echo \"Dummy build script required for Autocode Compile\"",
     "dev": "npm run compile:sass && live-server ./src",
     "lint:js": "eslint .",
     "lint:css": "stylelint 'src/scss/**/*.{css,scss}'",
