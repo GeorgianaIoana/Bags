@@ -7,10 +7,32 @@
     "url": "https://autocode.git.epam.com/campus_javascript/capstone-project/project-template.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Georgiana Stanciu",
   "type": "commonjs",
   "main": "index.js",
+  "build": "echo \"Dummy build script required for Autocode Compile\"",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "sass src/scss:src/dist/css --no-source-map --style=compressed",
+    "watch:sass": "sass --watch src/scss:src/dist/css --no-source-map",
+    "serve": "live-server --open=.",
+    "dev": "npm run compile:sass && live-server ./src",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint 'src/scss/**/*.{css,scss}'",
+    "lint:css:fix": "stylelint 'src/scss/**/*.{css,scss}' --fix",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "eslint . --fix && stylelint '**/*.{css,scss}' --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.5.0",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-scss": "^6.12.1"
   }
 }

@@ -1,0 +1,364 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.contact-banner {
+  position: relative;
+  width: 100%;
+  height: 554px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $color-light;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+
+  .contact-banner-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .contact-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .contact-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 0 1rem;
+
+    h1 {
+      font-size: $font-size-4xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: 1rem;
+
+      @include respond(mobile) {
+        font-size: $font-size-2xl;
+      }
+    }
+
+    p {
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+      font-family: "Montserrat", sans-serif;
+      color: #e9e9ed;
+
+      @include respond(mobile) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    height: 420px;
+
+    .contact-banner-content {
+      max-width: 600px;
+      padding: 0 24px;
+
+      h1 {
+        font-size: $font-size-3xl;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        font-size: $font-size-base;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  @include respond(mobile) {
+    height: 300px;
+    overflow: hidden;
+
+    .contact-banner {
+      height: auto;
+      min-height: 350px;
+    }
+
+    .contact-banner-content {
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: $font-size-2xl;
+        margin-bottom: $space-xs;
+      }
+
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  gap: $space-m;
+  text-align: center;
+
+  .feature {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    i {
+      font-size: $font-size-3xl;
+      color: $color-primary;
+      background-color: #f4e8ed;
+      padding: 20px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-family: "Montserrat", sans-serif;
+      font-size: $font-size-base;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: "Montserrat", sans-serif;
+      font-size: $font-size-base !important;
+      color: $color-muted;
+    }
+  }
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(6, 1fr);
+
+    .feature {
+      grid-column: span 3;
+    }
+  }
+
+  @include respond(mobile) {
+    grid-template-columns: 1fr;
+
+    .feature {
+      grid-column: span 12;
+    }
+  }
+}
+
+.feedback-section {
+  margin: 0 auto;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $space-xl;
+  align-items: start;
+}
+
+.feedback-image {
+  grid-column: span 6;
+
+  img {
+    width: 100%;
+    height: 700px;
+    object-fit: none;
+    box-shadow: 0px 20px 80px rgba(193, 199, 212, 0.3);
+    margin-top: $space-m;
+  }
+}
+
+.feedback-form {
+  grid-column: span 6;
+  font-family: Montserrat, sans-serif;
+  max-width: 90%;
+
+  h2 {
+    font-size: 25px;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-sm;
+  }
+
+  .form-subtitle {
+    font-size: $font-size-base;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    label {
+      font-size: 18px;
+      font-weight: $font-weight-bold;
+
+      span {
+        color: $color-primary;
+      }
+    }
+
+    input,
+    textarea {
+      height: 10px;
+      width: 100%;
+      border: 2px solid $color-primary;
+      padding: $space-sm;
+      font-size: $font-size-base;
+      outline: none;
+    }
+
+    textarea {
+      height: 110px;
+      resize: none;
+    }
+  }
+
+  .btn-primary {
+    width: 90px;
+    height: 40px;
+    padding: $space-xs 0;
+    background: $color-primary;
+    color: $color-light;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@include respond(tablet) {
+  .feedback-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: $space-lg;
+  }
+
+  .feedback-image {
+    grid-column: span 12;
+
+    img {
+      object-fit: cover;
+      height: 450px;
+      margin-top: $space-m;
+    }
+  }
+
+  .feedback-form {
+    grid-column: span 12;
+    max-width: 500px;
+    margin: $space-xl auto 0 auto;
+    padding: 0 $space-lg;
+
+    h2 {
+      font-size: $font-size-2xl;
+    }
+
+    .form-subtitle {
+      font-size: $font-size-md;
+    }
+
+    label {
+      font-size: $font-size-lg;
+    }
+
+    input,
+    textarea {
+      font-size: $font-size-md;
+    }
+  }
+
+  .btn-primary {
+    width: 100%;
+    height: auto;
+    font-size: $font-size-sm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@include respond(mobile) {
+  .feedback-section {
+    height: 100%;
+    min-height: auto !important;
+  }
+
+  .feedback-grid {
+    display: block;
+    gap: $space-lg;
+    height: auto;
+  }
+
+  .feedback-image img {
+    object-fit: none;
+    height: 300px;
+    margin-top: $space-sm;
+    overflow: hidden;
+  }
+
+  .feedback-form {
+    grid-column: span 12;
+    width: 90%;
+    max-width: 60%;
+    padding-left: 0px;
+    padding-right: $space-m;
+    height: auto !important;
+    max-height: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+
+    h2 {
+      font-size: $font-size-xl;
+      text-align: center;
+    }
+
+    .form-subtitle {
+      font-size: $font-size-base;
+      text-align: center;
+    }
+
+    form {
+      gap: $space-sm;
+    }
+
+    label {
+      font-size: $font-size-base;
+    }
+
+    input,
+    textarea {
+      font-size: $font-size-sm;
+      padding: $space-sm;
+      height: auto;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      font-size: $font-size-sm;
+      margin-top: $space-md;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

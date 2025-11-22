@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/layouts/header.css" />
+    <link rel="stylesheet" href="../dist/css/layouts/footer.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <main>
+      <section class="contact-banner">
+        <img
+          src="../assets/images/contact-banner.png"
+          alt="Traveler walking with luggage"
+          class="contact-banner-image"
+        />
+        <div class="contact-banner-overlay"></div>
+        <div class="contact-banner-content">
+          <h1>Contact Us</h1>
+          <p>Duis vestibulum elit vel neque pharetra vulputate.</p>
+          <p>Duis rutrum non risus in imperdiet.</p>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <img src="../assets/images/location.png" alt="Location Icon" />
+          <h3>Our Location</h3>
+          <p>
+            1234 NW Bobcat Lane, St. <br />
+            Robert, MO 65584 USA
+          </p>
+        </div>
+
+        <div class="feature">
+          <img src="../assets/images/program.png" alt="Operating Time Icon" />
+          <h3>Operating Time</h3>
+          <p>
+            Monday - Friday: 9am - 6 pm<br />
+            Weekends: 10:30 am - 6pm
+          </p>
+        </div>
+
+        <div class="feature">
+          <img src="../assets/images/email.png" alt="Email Icon" />
+          <h3>Our Email</h3>
+          <p>
+            best@shop.com<br />
+            info@bestshop.com
+          </p>
+        </div>
+
+        <div class="feature">
+          <img src="../assets/images/phone-icon.png" alt="Phone Icon" />
+          <h3>Call Us</h3>
+          <p>
+            (268)142-8413 <br />
+            (760)265-2917
+          </p>
+        </div>
+      </section>
+
+      <section class="feedback-section">
+        <div class="feedback-grid">
+          <div class="feedback-image">
+            <img src="../assets/images/contact-image.png" alt="Feedback" />
+          </div>
+
+          <div class="feedback-form">
+            <h2>Your Feedback Is Much Appreciated!</h2>
+            <p class="form-subtitle">
+              We will contact you when you complete the following form!
+            </p>
+
+            <form id="contactForm">
+              <label>Your Name <span>*</span></label>
+              <input type="text" id="name" name="name" required />
+
+              <label>Your Email Address <span>*</span></label>
+              <input type="email" id="email" name="email" required />
+
+              <label>Topic <span>*</span></label>
+              <input type="text" id="topic" name="topic" required />
+
+              <label>Your Message <span>*</span></label>
+              <textarea id="message" name="message" required></textarea>
+
+              <button type="submit" class="btn-primary">SEND</button>
+
+              <p id="formMessage" class="form-message"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/contact.js"></script>
+  </body>
+</html>

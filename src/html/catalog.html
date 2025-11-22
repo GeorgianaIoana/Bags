@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Shop - Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/layouts/header.css" />
+    <link rel="stylesheet" href="../dist/css/layouts/footer.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <main class="catalog-layout">
+      <div class="catalog-main">
+        <div class="catalog-toolbar">
+          <p class="results-count">Showing 1–12 of 0 results</p>
+          <button class="btn-primary" id="filterButton">Filter</button>
+          <div class="toolbar-right">
+            <div class="sorting">
+              <select id="sortSelect">
+                <option value="default" selected>Default Sorting</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Rating</option>
+                <option value="popularity">Popularity</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <section class="filter-bar">
+          <section class="filter-content">
+            <section class="filter-group">
+              <h3 class="filter-title">Size</h3>
+              <div class="form-group">
+                <select id="filter-size" name="size">
+                  <option value="" selected>Choose option</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                </select>
+              </div>
+            </section>
+            <section class="filter-group">
+              <h3 class="filter-title">Color</h3>
+              <div class="form-group">
+                <select id="filter-color" name="color">
+                  <option value="" selected>Choose option</option>
+                  <option value="Red">Red</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Grey">Grey</option>
+                  <option value="Green">Green</option>
+                  <option value="Black">Black</option>
+                  <option value="Pink">Pink</option>
+                  <option value="Yellow">Yellow</option>
+                </select>
+              </div>
+            </section>
+            <section class="filter-group">
+              <h3 class="filter-title">Category</h3>
+              <div class="form-group">
+                <select id="filter-category" name="category">
+                  <option value="" selected>Choose option</option>
+                  <option value="Carry Ons">Carry Ons</option>
+                  <option value="Luggage Sets">Luggage Sets</option>
+                  <option value="Kids' Luggage">Kids' Luggage</option>
+                  <option value="Suitcases">Suitcases</option>
+                </select>
+              </div>
+            </section>
+            <section class="filter-group sales-filter">
+              <h3 class="filter-title">Sales</h3>
+              <button class="toggle-button" id="salesToggleButton" aria-pressed="false"></button>
+            </section>
+          </section>
+          <section class="filter-actions">
+            <button class="action-button clear-filters">CLEAR FILTERS</button>
+            <button class="action-button hide-filters">HIDE FILTERS</button>
+          </section>
+        </section>
+        <section class="product-list"></section>
+        <div class="pagination">
+          <button class="prev-page" id="prevPage">Previous</button>
+          <div class="pagination-info" id="pagination-info"></div>
+          <button class="next-page" id="nextPage">Next</button>
+        </div>
+      </div>
+      <aside class="catalog-sidebar">
+        <div class="search-block">
+          <input type="text" class="search-input" placeholder="Search Models" id="productSearchInput" aria-label="Search products" />
+          <button class="search-btn" id="searchBtnSidebar" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <h3 class="sidebar-title">Top Best Sets</h3>
+        <div class="best-sets"></div>
+      </aside>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/catalog.js"></script>
+  </body>
+</html>

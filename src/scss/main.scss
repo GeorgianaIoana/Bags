@@ -1,0 +1,804 @@
+@use "abstracts/mixins" as *;
+@use "abstracts/variables" as *;
+@use "./base/reset";
+@use "./layouts/header";
+@use "./layouts/footer";
+@use "./pages/product-details";
+@use "./pages/contact";
+@use "./pages/catalog";
+@use "./components/buttons";
+@use "./components/forms";
+@use "./pages/about";
+@use "./pages/cart";
+@use "base/fonts" as *;
+@use "./components/product-card";
+
+body {
+  padding-top:$space-m;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero {
+  position: relative;
+  height: 861px;
+  flex-direction: column;
+  gap: $space-sm;
+  background-color: #e7e8e9;
+  display: flex;
+  align-items: center;
+
+  .hero-top {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: $space-xl;
+    padding-top: 116px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .hero-text {
+      grid-column: span 5;
+
+      h1 {
+        font-weight: $font-weight-bolder;
+        line-height: $lh-tight;
+        font-family: $font-primary;
+        font-size: $font-size-4xl;
+        color: $color-dark;
+        margin: 0;
+
+        span {
+          display: block;
+        }
+      }
+
+      p {
+        font-family: $font-primary;
+        color: $color-muted;
+        font-size: 17px;
+        font-weight: $font-weight-regular;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .hero-image {
+      grid-column: span 7;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 625px;
+        max-width: 646px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .hero-bottom {
+    position: absolute;
+    filter: drop-shadow(0 20px 80px rgba(193, 199, 212, 0.7));
+    background-color: $color-light;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    width: 100%;
+    top: 785px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .hero-testimonial {
+      padding-top: $space-xl;
+      padding-left: $space-xl;
+      padding-right: $space-xl;
+      background: $color-light;
+
+      .hero-profile {
+        display: flex;
+        align-items: center;
+        gap: $space-md;
+        margin-bottom: $space-md;
+        overflow: hidden;
+
+        img {
+          border-radius: 50%;
+          object-fit: cover;
+          display: block;
+          width: 64px;
+          height: 64px;
+          box-shadow: 0 4px 16px rgba($color-dark, 0.1);
+        }
+
+        h4 {
+          font-size: 18px;
+          font-weight: $font-weight-bold;
+          color: $color-dark;
+          margin: 0;
+          line-height: 1.3;
+          font-family: $font-primary;
+        }
+
+        p {
+          font-size: 15px;
+          color: $color-muted;
+          margin: 2px 0 0 0;
+          line-height: 1.3;
+          font-family: $font-primary;
+        }
+      }
+
+      h3 {
+        font-size: 40px;
+        font-weight: $font-weight-bolder;
+        line-height: $lh-tight;
+        font-family: $font-primary;
+      }
+
+      p {
+        margin-top: $space-m;
+        color: $color-muted;
+        font-size: 17px;
+        line-height: $lh-relaxed;
+        font-family: $font-primary;
+        font-weight: $font-weight-regular;
+      }
+    }
+
+    .hero-discount {
+      position: relative;
+      width: 646px;
+      height: auto;
+      overflow: hidden;
+
+      .hero-discount-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba($color-dark, 0.4);
+      }
+    }
+
+    .hero-discount-content {
+      position: absolute;
+      top: 50%;
+      left: $space-xl;
+      transform: translateY(-45%);
+      z-index: 2;
+      color: $color-light;
+      max-width: 420px;
+
+      h3 {
+        font-size: $space-lg;
+        font-weight: $font-weight-bolder;
+        line-height: $lh-tight;
+        margin-bottom: $space-md;
+        font-family: $font-primary;
+      }
+
+      p {
+        font-size: $font-size-base;
+        line-height: $lh-relaxed;
+        margin-bottom: $space-lg;
+        color: rgba($color-light, 0.95);
+        font-family: $font-primary;
+        font-weight: $font-weight-regular;
+      }
+    }
+  }
+}
+
+@include respond(tablet) {
+  .hero {
+    height: auto;
+    align-items: stretch;
+
+    .hero-top {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: $space-lg;
+      padding: 0 $space-xl;
+      margin-top: $font-size-lg;
+
+      .hero-text {
+        grid-column: span 1;
+
+        h1 {
+          font-size: $font-size-3xl;
+          span {
+            display: inline;
+          }
+        }
+
+        p {
+          font-family: "Montserrat", sans-serif;
+          max-width: 600px;
+          margin-top: $space-sm;
+          margin-bottom: $space-md;
+          font-size: $font-size-base;
+        }
+
+        .btn-primary {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .hero-image {
+        grid-column: span 1;
+
+        img {
+          height: 420px;
+          max-width: 100%;
+        }
+      }
+    }
+
+    .hero-bottom {
+      position: static !important;
+      margin-top: $space-xl;
+      grid-template-columns: 1fr;
+      max-width: 100%;
+      height: auto;
+
+      .hero-testimonial {
+        padding: $space-xl;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+
+        .hero-profile {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        h3 {
+          margin-top: 50px;
+          font-size: $font-size-2xl;
+        }
+
+        p {
+          margin-top: $space-sm;
+          font-size: $font-size-base;
+        }
+      }
+
+      .hero-discount {
+        width: 100%;
+        height: 420px;
+        margin-top: $space-lg;
+
+        .hero-discount-content {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+
+          h3 {
+            font-size: $font-size-2xl;
+          }
+
+          p {
+            font-size: $font-size-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond(mobile) {
+  .hero {
+    height: auto;
+    align-items: stretch;
+
+    .hero-top {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: $space-md;
+      padding: 0 $space-lg;
+
+      .hero-text {
+        h1 {
+          font-size: $font-size-2xl;
+          line-height: $lh-tight;
+        }
+
+        p {
+          font-size: $font-size-sm;
+          margin-top: $space-xs;
+          margin-bottom: $space-md;
+        }
+
+        .btn-primary {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .hero-image img {
+        height: 300px;
+        max-width: 100%;
+      }
+    }
+
+    .hero-bottom {
+      position: static !important;
+      grid-template-columns: 1fr;
+      max-width: 100%;
+      height: auto;
+      margin-top: $space-lg;
+
+      .hero-testimonial {
+        padding: $space-lg;
+        text-align: center;
+
+        .hero-profile h4 {
+          font-size: $font-size-base;
+        }
+
+        .hero-profile p {
+          font-size: $font-size-sm;
+        }
+
+        h3 {
+          font-size: $font-size-xl;
+        }
+
+        p {
+          max-width: 275px;
+          font-size: $font-size-sm;
+          margin-top: $space-sm;
+        }
+      }
+
+      .hero-discount {
+        width: 100%;
+        height: 360px;
+        margin-top: $space-md;
+
+        .hero-discount-content {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+
+          h3 {
+            font-size: $font-size-lg;
+          }
+
+          p {
+            font-size: $font-size-sm;
+            margin-bottom: $space-md;
+          }
+
+          .btn-hero-discount {
+            font-size: $font-size-sm;
+            padding: $space-xs $space-md;
+          }
+        }
+      }
+    }
+  }
+}
+
+.travel-suitcases {
+  margin-top: 460px;
+  padding-top: 160px;
+  background-color: $color-light;
+  margin-bottom: $space-2xl;
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+
+    h2 {
+      font-family: $font-primary;
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bolder;
+      color: $color-dark;
+      margin-bottom: 0;
+    }
+
+    p {
+      font-family: $font-primary;
+      font-size: 17px;
+      color: $color-muted;
+    }
+  }
+
+  .suitcase-slider {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $font-size-4xl;
+    padding-right: $font-size-3xl;
+
+    .suitcase-list {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .suitcase-card {
+      overflow: hidden;
+      position: relative;
+      height: 600px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+      &:hover {
+        box-shadow: 0 24px 100px rgba($color-dark, 0.12);
+
+        img {
+          transform: scale(1.08);
+        }
+      }
+
+      figure {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .suitcase-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba($color-dark, 0.4);
+          color: $color-light;
+          padding: 32px 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          opacity: 1;
+          transition: opacity 0.4s ease;
+
+          h3 {
+            font-family: $font-primary;
+            font-size: $font-size-md;
+            font-weight: $font-weight-bold;
+            margin-bottom: 12px;
+            line-height: 1.4;
+          }
+
+          p {
+            line-height: 28px;
+            color: $color-light;
+            font-family: $font-primary;
+            font-size: $font-size-md;
+            font-weight: $font-weight-regular;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-top: 100px;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .suitcase-slider {
+      padding-right: 10px;
+    }
+
+    .section-heading {
+      margin-bottom: 48px;
+
+      h2 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .suitcase-slider {
+      padding-left: 0px;
+      .suitcase-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .suitcase-card {
+        height: 420px;
+        margin-left: auto;
+        margin-right: auto;
+
+        figure .suitcase-overlay {
+          padding: 24px 20px;
+
+          h3 {
+            font-size: 17px;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: $lh-tight;
+          }
+        }
+      }
+    }
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  @include respond(mobile) {
+    overflow: hidden;
+    margin-top: $space-lg;
+    padding: $space-xl 0;
+    padding-left: $space-xxs;
+    margin-bottom: 0px;
+
+    .section-heading {
+      margin-bottom: $space-lg;
+
+      h2 {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        line-height: $lh-tight;
+      }
+
+      p {
+        font-size: $font-size-sm;
+        color: $color-muted;
+        line-height: $lh-normal;
+      }
+    }
+
+    .arrow {
+      display: flex !important;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba($color-dark, 0.5);
+      color: $color-light;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 22px;
+        height: 22px;
+        fill: currentColor;
+      }
+    }
+
+    .arrow-prev {
+      left: 1%;
+      top: 230px;
+    }
+    .arrow-next {
+      left: 81%;
+      top: 230px;
+    }
+
+    .suitcase-slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-left: 0px;
+    }
+
+    .suitcase-list {
+      display: flex;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
+      width: 100%;
+      gap: 0 !important;
+      transition: transform 0.3s ease;
+      margin: 0;
+      padding: 0;
+    }
+
+    .suitcase-item {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .suitcase-card {
+      width: 55% !important;
+      height: 400px !important;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+
+      figure {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .suitcase-overlay {
+          padding: $space-sm;
+          background: rgba($color-dark, 0.4);
+          color: $color-light;
+
+          h3 {
+            font-size: $font-size-md;
+            font-weight: $font-weight-bold;
+            line-height: $lh-tight;
+          }
+
+          p {
+            font-size: $font-size-sm !important;
+            line-height: $lh-normal !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.testimonials {
+  margin-top: $space-xl;
+  padding-bottom: $space-xl;
+  text-align: center;
+  background-color: $color-light;
+  margin-left: auto;
+  margin-right: auto;
+
+  .testimonials-header {
+    margin-bottom: 60px;
+
+    h2 {
+      font-family: $font-primary;
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bold;
+      color: $color-dark;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: $font-primary;
+      font-size: $font-size-base;
+      color: $color-muted;
+    }
+  }
+
+  .testimonials-list {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 45px;
+    flex-wrap: nowrap;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    flex: 0 0 30%;
+    height: 336px;
+    background: $color-light;
+    box-shadow: 0 20px 80px rgba($color-dark, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+
+      img {
+        width: 98px;
+        height: 98px;
+        object-fit: cover;
+      }
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: $color-muted;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: $color-dark;
+
+      span {
+        color: $color-primary;
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    padding: 80px 0;
+
+    .testimonials-list {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      flex: 0 1 360px;
+      height: 320px;
+      padding: 28px;
+    }
+
+    .testimonials-header h2 {
+      font-size: 32px;
+    }
+  }
+
+  @include respond(mobile) {
+    padding: 64px 0;
+
+    .testimonials-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      flex: 1 1 100%;
+      max-width: 340px;
+      height: auto;
+      padding: 24px 20px;
+
+      .testimonial-avatar {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 16px;
+      }
+
+      .testimonial-text {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+
+      .testimonial-author {
+        font-size: 14px;
+      }
+    }
+
+    .testimonials-header h2 {
+      font-size: 28px;
+    }
+
+    .testimonials-header p {
+      font-size: 15px;
+    }
+  }
+}
