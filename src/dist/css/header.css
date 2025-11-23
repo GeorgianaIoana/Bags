@@ -355,7 +355,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -10px;
+  top: -12px;
   right: -10px;
   width: 16px;
   height: 16px;
@@ -365,4 +365,28 @@
   background: transparent;
   font-size: 12px;
   font-weight: 700;
+}
+@media (max-width: 1024px) {
+  .header-cart img {
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+  }
+  .header-cart #cartCount {
+    top: -11px;
+    width: 14px;
+    height: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .header-cart img {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+  }
+  .header-cart #cartCount {
+    top: -10px;
+    width: 12px;
+    height: 12px;
+  }
 }/*# sourceMappingURL=header.css.map */

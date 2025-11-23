@@ -403,7 +403,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -10px;
+    top: -12px;
     right: -10px;
     width: 16px;
     height: 16px;
@@ -413,5 +413,33 @@
     background: transparent;
     font-size: 12px;
     font-weight: 700;
+  }
+
+   @include respond(tablet) {
+    img {
+      width: 24px;
+      height: 24px;
+      z-index: 1;
+    }
+
+    #cartCount {
+      top: -11px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @include respond(mobile) {
+    img {
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+    }
+
+    #cartCount {
+      top: -10px;
+      width: 12px;
+      height: 12px;
+    }
   }
 }
