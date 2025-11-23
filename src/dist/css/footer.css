@@ -22,10 +22,10 @@
   padding: 0 20px;
 }
 .benefits .container .benefits-header {
-  font-family: "Montserrat", sans-serif;
   margin-bottom: 32px;
 }
 .benefits .container .benefits-header h2 {
+  font-family: "Inter", sans-serif;
   padding-left: 80px;
   font-size: 20px;
   font-weight: 600;
@@ -57,6 +57,7 @@
   flex-shrink: 0;
 }
 .benefits .benefit-item p {
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #ffffff;
@@ -91,12 +92,15 @@
     padding-bottom: 20px;
   }
   .benefits .benefits-header h2 {
-    margin-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
+    align-items: center !important;
     font-size: 24px;
     margin-bottom: 16px;
+    padding-left: 0px !important;
   }
   .benefits .benefits-list {
     flex-direction: column;

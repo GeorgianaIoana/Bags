@@ -4,14 +4,16 @@
 
 .product-page {
   max-width: 1320px;
-  margin: 120px auto 80px;
+  margin: 86px auto 80px;
   padding: 0 40px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 60px;
+  gap: 43px;
   font-family: $font-primary;
 
   .product-gallery {
+    padding-top:30px;
+
     .main-image img {
       width: 100%;
       height: 860px;
@@ -23,10 +25,11 @@
     .thumbs {
       margin-top: 20px;
       display: flex;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
 
       img {
-        width: 150px;
+        width:148px;
         height: 148px;
         object-fit: cover;
         cursor: pointer;
@@ -80,24 +83,25 @@
       font-family: $font-primary;
       font-size: $font-size-base;
       color: #504e4a;
-      margin-bottom: $space-lg;
+      margin-bottom: 69px;
 
       p {
-        margin-bottom: 10px;
+        margin-bottom: $space-lg;
+        line-height: $lh-relaxed;
       }
     }
 
     .product-options {
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      margin-bottom: $space-lg;
+      gap: 30px;
+      margin-bottom: $space-2xl;
 
       label {
         display: block;
         font-weight: 700;
         font-size: $font-size-base;
-        margin-bottom: 6px;
+        margin-bottom: $space-sm;
         color: #504e4a;
       }
 
@@ -164,9 +168,11 @@
     }
 
     .payment {
+      padding-top: 30px;
       display: flex;
       align-items: center;
       gap: 20px;
+     
 
       .label {
         font-size: 23px;
@@ -188,7 +194,7 @@
 }
 
 .product-tabs {
-  max-width: 1320px;
+  max-width: 90%;
   margin: 80px auto;
   font-family: $font-primary;
   color: #504e4a;
@@ -239,7 +245,7 @@
     }
 
     p {
-      font-size: $font-size-sm;
+      font-size: $font-size-base;
       line-height: 1.8;
       margin-bottom: 20px;
       color: #504e4a;
@@ -562,6 +568,16 @@
     gap: 32px;
     margin: 80px auto;
 
+    .product-info {
+      .product-options {
+        flex-direction: row;
+        margin-bottom: 30px;
+      }
+      .product-actions {
+        margin-bottom: 0px;
+      }
+    }
+
     .product-gallery .main-image img {
       height: 420px;
     }
@@ -615,6 +631,7 @@
   }
 
   .product-gallery {
+    max-width: 90%;
     order: 1;
   }
   .product-gallery .main-image img {
@@ -634,6 +651,7 @@
   }
 
   .product-info {
+    max-width: 90%;
     order: 2;
     padding-bottom: 0;
 
@@ -649,6 +667,16 @@
     }
     .product-description {
       font-size: 14px !important;
+    }
+
+    .payment {
+      justify-content: center ;
+      .icons {
+        gap: 10px !important;
+      }
+      .label {
+        font-size: $font-size-sm !important;
+      }
     }
   }
 
@@ -680,6 +708,12 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+    }
+
+    .tab-content {
+      p {
+        font-size: $font-size-sm;
+      }
     }
 
     .tab-content.reviews {

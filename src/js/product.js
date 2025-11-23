@@ -170,6 +170,12 @@ submitBtn.addEventListener('click', (e) => {
     const email = emailInput.value.trim();
     const review = reviewInput.value.trim();
 
+    const atLeastOneStar = document.querySelector('.star.filled');
+    if (!atLeastOneStar) {
+        alert("Please select at least one star rating.");
+        return;
+    }
+
     if (!name || !email || !review) {
         alert("Please complete Name, Email and Review before submitting.");
         return;
@@ -190,3 +196,4 @@ submitBtn.addEventListener('click', (e) => {
 
     form.reset();
 });
+

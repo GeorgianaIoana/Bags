@@ -3,6 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .btn-primary {
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,21 +133,6 @@
 
 }
 
-.get-discount {
-  border: solid 1px $color-dark;
-
-  @include respond(tablet) {
-    width: 150px;
-    height: 54px;
-    font-size: $font-size-md;
-  }
-
-  @include respond(mobile) {
-    max-width: 140px;
-    height: 48px;
-    font-size: $font-size-sm;
-  }
-}
 
 .btn-product {
   display: inline-flex;
@@ -162,6 +148,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  font-size: 18px;
 
   &:hover {
     transform: translateY(-2px);
@@ -189,14 +176,15 @@
   height: 60px;
   background-color: $color-primary;
   color: $color-light;
-  font-size: $font-size-sm;
+  font-size: $font-size-base;
   font-weight: $font-weight-bold;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
-
-  &:hover {
+  text-transform: uppercase;
+  
+  &:hover { 
     transform: translateY(-2px);
   }
 

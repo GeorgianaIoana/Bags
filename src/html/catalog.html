@@ -6,8 +6,16 @@
     <title>Best Shop - Catalog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/layouts/header.css" />
     <link rel="stylesheet" href="../dist/css/layouts/footer.css" />
@@ -18,7 +26,9 @@
       <div class="catalog-main">
         <div class="catalog-toolbar">
           <p class="results-count">Showing 1–12 of 0 results</p>
-          <button class="btn-primary" id="filterButton">Filter</button>
+          <button class="btn-primary" style="border: none" id="filterButton">
+            Filter
+          </button>
           <div class="toolbar-right">
             <div class="sorting">
               <select id="sortSelect">
@@ -73,12 +83,16 @@
             </section>
             <section class="filter-group sales-filter">
               <h3 class="filter-title">Sales</h3>
-              <button class="toggle-button" id="salesToggleButton" aria-pressed="false"></button>
+              <button
+                class="toggle-button"
+                id="salesToggleButton"
+                aria-pressed="false"
+              ></button>
             </section>
           </section>
           <section class="filter-actions">
-            <button class="action-button clear-filters">CLEAR FILTERS</button>
-            <button class="action-button hide-filters">HIDE FILTERS</button>
+            <button class="btn-primary clear-filters">Clear Filters</button>
+            <button class="btn-primary hide-filters">Hide Filters</button>
           </section>
         </section>
         <section class="product-list"></section>
@@ -90,7 +104,13 @@
       </div>
       <aside class="catalog-sidebar">
         <div class="search-block">
-          <input type="text" class="search-input" placeholder="Search Models" id="productSearchInput" aria-label="Search products" />
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search Models"
+            id="productSearchInput"
+            aria-label="Search products"
+          />
           <button class="search-btn" id="searchBtnSidebar" aria-label="Search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>

@@ -11,6 +11,7 @@
   padding: $space-m 0;
   font-family: $font-primary;
   overflow-x: hidden;
+  padding-top:86px;
 }
 
 .catalog-toolbar {
@@ -83,7 +84,6 @@
   background: #fff;
   max-height: 0;
   padding: 0;
-  border-bottom: 3px solid #b92770;
   transition: max-height 0.4s ease, padding 0.4s ease;
   overflow: hidden;
 }
@@ -100,7 +100,12 @@
   gap: $space-lg;
   width: 100%;
   max-width: 100%;
-  margin: 0;
+  margin-left:auto;
+  margin-right:auto;
+  border-bottom: 3px solid #b92770;
+  border-top: 3px solid #b92770;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .filter-group {
@@ -191,11 +196,25 @@
 
 @include respond(tablet) {
   .filter-content {
+    flex-direction: column;
     gap: $space-lg;
   }
   .filter-actions {
     max-width: 900px;
   }
+  .filter-bar.active {
+    margin-left: auto;
+    margin-right: auto;
+  } 
+  .filter-content{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+
+   .filter-group select {
+    width: 90%;
+  }
+
 }
 
 @include respond(mobile) {
@@ -212,7 +231,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: $space-sm;
-    padding: 0 $space-sm;
+    padding: 0 80px;
     max-width: 60%;
   }
 
@@ -468,6 +487,7 @@
 }
 
 .catalog-sidebar {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;

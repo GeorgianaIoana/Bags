@@ -27,10 +27,11 @@
     padding: 0 20px;
 
     .benefits-header {
-      font-family: $font-primary;
+  
       margin-bottom: 32px;
 
-      h2 {
+      h2 {  
+        font-family: 'Inter', sans-serif;
         padding-left: 80px;
         font-size: $font-size-lg;
         font-weight: 600;
@@ -67,6 +68,7 @@
     }
 
     p {
+      font-family: 'Helvetica Neue', sans-serif;
       font-size: 15px;
       line-height: 1.5;
       color: #ffffff;
@@ -105,12 +107,15 @@
     padding-bottom: 20px;
 
     .benefits-header h2 {
-      margin-left: 0px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
       display: flex;
-      justify-content: center;
+      justify-content: center !important;
+      align-items: center !important;
       font-size: $font-size-xl;
       margin-bottom: $space-sm;
+      padding-left:0px !important;
     }
 
     .benefits-list {
@@ -136,6 +141,8 @@
     }
   }
 }
+
+
 
 .footer {
   margin-top: 100px;
