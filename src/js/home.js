@@ -1,7 +1,4 @@
-import {
-    addProductToCart,
-    renderProductsSection
-} from './main.js';
+import { addProductToCart, renderProductsSection } from './main.js';
 
 async function init() {
     try {
@@ -23,35 +20,39 @@ async function init() {
 init();
 
 
-document.addEventListener("DOMContentLoaded", () => {
+function initMobileSlider() {
     const slider = document.querySelector(".suitcase-list");
     const slides = document.querySelectorAll(".suitcase-item");
     const prevBtn = document.querySelector(".arrow-prev");
     const nextBtn = document.querySelector(".arrow-next");
 
-    if (!slider || slides.length === 0) return;
-
-    let index = 0;
-    const totalSlides = slides.length;
+    if (!slider || slides.length === 0 || !prevBtn || !nextBtn) return;
 
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (!isMobile) return;
+
+    if (slider.dataset.initialized === "true") return;
+    slider.dataset.initialized = "true";
+
+    let index = 0;
+    const totalSlides = slides.length;
 
     function updateSlider() {
         slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
     nextBtn.addEventListener("click", () => {
-        index++;
-        if (index > totalSlides - 1) index = 0;
+        index = (index + 1) % totalSlides;
         updateSlider();
     });
 
     prevBtn.addEventListener("click", () => {
-        index--;
-        if (index < 0) index = totalSlides - 1;
+        index = (index - 1 + totalSlides) % totalSlides;
         updateSlider();
     });
 
     updateSlider();
-});
+}
+
+document.addEventListener("DOMContentLoaded", initMobileSlider);
+window.addEventListener("resize", initMobileSlider);
