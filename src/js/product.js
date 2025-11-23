@@ -127,7 +127,7 @@ addToCartBtn.addEventListener('click', () => {
 
 init();
 
-const stars = document.querySelectorAll('.star');
+const stars = document.querySelectorAll('.review-form .star');
 let currentRating = 0;
 
 stars.forEach((star, index) => {
@@ -153,27 +153,40 @@ stars.forEach((star, index) => {
 
 });
 
-const reviewInput = document.querySelector('.review-text');
-const nameInput = document.querySelector('.review-name');
-const emailInput = document.querySelector('.review-email');
+
+const form = document.querySelector('.review-form');
+const reviewInput = document.querySelector('.review-form textarea');
+const nameInput = document.querySelector('.review-form input[type="text"]');
+const emailInput = document.querySelector('.review-form input[type="email"]');
 const submitBtn = document.querySelector('.btn-submit');
 const popup = document.getElementById('popup');
+
+form.setAttribute("novalidate", true);
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const name = nameInput?.value.trim();
-    const email = emailInput?.value.trim();
-    const review = reviewInput?.value.trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const review = reviewInput.value.trim();
 
     if (!name || !email || !review) {
         alert("Please complete Name, Email and Review before submitting.");
         return;
     }
 
-    popup.classList.add('show');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    popup.classList.add("show");
 
     setTimeout(() => {
-        popup.classList.remove('show');
+        popup.classList.remove("show");
     }, 3000);
+
+    form.reset();
 });

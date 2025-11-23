@@ -121,6 +121,7 @@ document.addEventListener("click", e => {
       <div style="text-align:center; font-size:20px; margin-bottom:20px; @media (max-width: 700px) { font-size:17px !important; };}">
         Thank you for your purchase! :) <br>We will contact you soon!
       </div>
+      <span> <img src="../assets/images/ribbon.svg" style="width:50px;height:50px; display:flex; justify-content:center; margin: 0 auto;"></span>
     `;
 
         cartBody.innerHTML = "";
@@ -128,7 +129,7 @@ document.addEventListener("click", e => {
     }
 
     if (e.target.id === "continueShopping") {
-        window.location.href = "../pages/catalog.html";
+        window.location.href = "/html/catalog.html";
     }
 });
 

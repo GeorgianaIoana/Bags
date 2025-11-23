@@ -103,8 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <label>Password <span>*</span></label>
           <div class="password-wrapper">
             <input type="password" id="login-password" autocomplete="current-password" required />
-            <span class="eye-icon" id="toggle-password">
-            <img src="../assets/images/eye-icon.svg" alt="Toggle Password Visibility"></span>
+            <span class="eye-icon" id="toggle-password"></span>
           </div>
 
           <div class="options">
@@ -123,6 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
     document.body.insertAdjacentHTML("beforeend", loginHTML);
+
+    document.body.insertAdjacentHTML("beforeend", `
+        <div id="login-success-popup" class="login-success-popup hidden">
+        <div class="login-success-box">
+            <img src="../assets/images/ribbon.svg" class="success-icon" alt="Success">
+            <p class="success-message">Logged in successfully!</p>
+        </div>
+        </div>
+        `);
+
 
 
 
@@ -156,11 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     loginModal.classList.add("hidden");
                 });
 
-                togglePassword.addEventListener("click", () => {
-                    const type = passwordField.type === "password" ? "text" : "password";
-                    passwordField.type = type;
-                    togglePassword.classList.toggle("active");
-                });
+             togglePassword.addEventListener("click", () => {
+                const isPassword = passwordField.type === "password";
+                passwordField.type = isPassword ? "text" : "password";
+                togglePassword.classList.toggle("showing", isPassword);
+            });
+
+
 
                 loginForm.addEventListener("submit", (e) => {
                     e.preventDefault();
@@ -250,21 +261,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function showLoginSuccess(message) {
-        console.log("Showing login success message");
-        const successBox = document.createElement("div");
-        successBox.className = "login-success";
-        successBox.textContent = message;
+function showLoginSuccess(message) {
+    const popup = document.getElementById("login-success-popup");
+    const msg = popup.querySelector(".success-message");
 
-        document.body.appendChild(successBox);
+    msg.textContent = message;
+    popup.classList.remove("hidden");
 
-        requestAnimationFrame(() => {
-            successBox.classList.add("show");
-        });
+    requestAnimationFrame(() => {
+        popup.classList.add("show");
+    });
 
-        setTimeout(() => {
-            successBox.classList.remove("show");
-            setTimeout(() => successBox.remove(), 300);
-        }, 5000);
-    }
+    setTimeout(() => {
+        popup.classList.remove("show");
+        setTimeout(() => popup.classList.add("hidden"), 300);
+    }, 4000);
+}
+
 });

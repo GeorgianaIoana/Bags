@@ -160,11 +160,9 @@
                 <span class="date">/ June 11, 2025</span>
               </div>
               <div class="review-stars">
-                <span class="star full">★</span>
-                <span class="star full">★</span>
-                <span class="star full">★</span>
-                <span class="star full">★</span>
-                <span class="star empty">★</span>
+                <span class="star full"
+                  ><img src="../assets/images/stars.svg" alt="stars"
+                /></span>
               </div>
               <p class="text">
                 Proin iaculis nibh vitae lectus mollis bibendum. Quisque varius
@@ -174,7 +172,7 @@
             </div>
           </div>
         </div>
-        <div class="review-form">
+        <form class="review-form" novalidate>
           <h3 class="form-title">Add Review</h3>
           <p class="note">
             Your email address won’t be shared with anybody. Required fields
@@ -183,17 +181,32 @@
           <div class="rate">
             <span>RATE PRODUCT</span>
             <div class="stars">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star"
+                ><img src="../assets/images/star.svg" alt="star"
+              /></span>
+              <span class="star"
+                ><img src="../assets/images/star.svg" alt="star"
+              /></span>
+              <span class="star"
+                ><img src="../assets/images/star.svg" alt="star"
+              /></span>
+              <span class="star"
+                ><img src="../assets/images/star.svg" alt="star"
+              /></span>
+              <span class="star"
+                ><img src="../assets/images/star.svg" alt="star"
+              /></span>
             </div>
           </div>
           <textarea placeholder="Your Review*"></textarea>
           <div class="form-row">
             <input type="text" placeholder="Your Name*" />
-            <input type="email" placeholder="Your Email*" class="email-input" />
+            <input
+              type="email"
+              placeholder="Your Email*"
+              class="email-input"
+              novalidate
+            />
           </div>
           <div class="checkbox">
             <input type="checkbox" id="save-info" />
@@ -203,8 +216,7 @@
             </label>
           </div>
           <button class="btn-submit">SUBMIT</button>
-          <div class="popup" id="popup">Thank you for submission</div>
-        </div>
+        </form>
       </div>
       <div class="tab-content" id="shipping">
         <p>
@@ -235,6 +247,16 @@
         </svg>
       </div>
       <div class="products-section"></div>
+    </div>
+    <div id="popup" class="popup">
+      <div class="popup-box">
+        <img
+          src="../assets/images/ribbon.svg"
+          class="popup-icon"
+          alt="Success"
+        />
+        <p class="popup-message">Thank you for your review!</p>
+      </div>
     </div>
     <div id="productContainer"></div>
     <div id="footer"></div>

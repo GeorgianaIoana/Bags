@@ -19,3 +19,6 @@ npm install
 ## Run
 
 Run command 'npm run dev'
+
+
+## Checklist points achieved: 

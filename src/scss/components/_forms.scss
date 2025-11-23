@@ -2,6 +2,7 @@
 @use "../abstracts/mixins" as *;
 @use "../base/fonts" as *;
 
+
 .login-modal {
   position: fixed;
   inset: 0;
@@ -30,7 +31,6 @@
   padding-bottom: $space-lg;
   font-family: $font-primary;
   box-sizing: border-box;
-  border-radius: 6px;
   z-index: 1000;
 }
 
@@ -64,15 +64,19 @@
   }
 
   input {
+    padding-left: 4px;
+    padding-right: 4px;
     width: 100%;
     height: 44px;
-    border: 2px solid $color-primary;
+    border: 2px solid $color-forms;
     font-size: $font-size-sm;
     font-family: $font-primary;
     outline: none;
-    border-radius: 2px;
     color: $color-dark;
-  }
+  
+      &:focus {
+     border: 2px solid $color-primary;
+  }}
 }
 
 .password-wrapper {
@@ -85,6 +89,13 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    background-image: url('../../assets/images/eye-slash.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .eye-icon.showing {
+    background-image: url('../../assets/images/eye-icon.svg');
   }
 }
 
@@ -104,7 +115,6 @@
     input {
       width: 14px;
       height: 14px;
-      border: 2px solid $color-muted;
       appearance: none;
       cursor: pointer;
 
@@ -134,15 +144,15 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 3px;
 }
+
+
 @include respond(tablet) {
   .login-container {
     width: 70%;
     max-width: 500px;
     padding: $space-lg $space-md;
     height: auto;
-    border-radius: 18px;
   }
 
   .login-title {
@@ -150,7 +160,6 @@
   }
 
   .login-form {
-    width: 100%;
     gap: $space-sm;
 
     label {
@@ -158,11 +167,9 @@
     }
 
     input {
-      width: 100%;
       height: 42px;
-      font-size: $font-size-sm;
       padding: 0 $space-sm;
-      box-sizing: border-box;
+      font-size: $font-size-sm;
     }
   }
 
@@ -176,22 +183,14 @@
   .options {
     gap: $space-xs;
     margin-top: $space-xs;
-
-    .remember {
-      font-size: $font-size-xs;
-    }
-
-    .forgot {
-      font-size: $font-size-xs;
-    }
   }
 
   .login-btn {
-    width: 100%;
     height: 44px;
     font-size: $font-size-base;
     margin-top: $space-sm;
   }
+}
 
 
 @include respond(mobile) {
@@ -199,7 +198,6 @@
     width: 60%;
     padding: $space-md $space-sm;
     height: auto;
-    border-radius: 14px;
   }
 
   .login-title {
@@ -207,7 +205,6 @@
   }
 
   .login-form {
-    width: 100%;
     gap: $space-xs;
 
     label {
@@ -215,48 +212,108 @@
     }
 
     input {
-      width: 100%;
-      box-sizing: border-box;
       height: 38px;
-      font-size: $font-size-sm;
       padding: 0 $space-xs;
+      font-size: $font-size-sm;
     }
   }
 
-  .password-wrapper {
-    position: relative;
-
-    .eye-icon {
-      right: 10px;
-      top: 11px;
-      width: 14px !important;
-      height: 14px !important;
-    }
+  .password-wrapper .eye-icon {
+    right: 10px;
+    top: 11px;
+    width: 14px;
+    height: 14px;
   }
 
   .options {
     flex-direction: column;
     align-items: flex-start;
     gap: $space-xs;
-    margin-top: $space-xs;
-
-    .remember {
-      font-size: $font-size-xs;
-    }
 
     .forgot {
-      font-size: $font-size-xs;
       align-self: flex-end;
     }
   }
 
   .login-btn {
-    width: 100%;
     height: 40px;
-    font-size: $font-size-sm;
     margin-top: $space-sm;
   }
 }
 
+
+
+.login-success-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
+.login-success-box {
+  background: $color-light;
+  padding: $space-lg;
+  text-align: center;
+  width: 380px;
+  box-shadow: 0 6px 24px rgba($color-dark, .25);
+  animation: successPop .3s ease forwards;
+  border: 2px solid $color-primary;
+}
+
+.success-icon {
+  width: 60px;
+  margin-bottom: $space-sm;
+}
+
+.success-message {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-dark;
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@include respond(tablet) {
+  .login-success-box {
+    width: 70%;
+    max-width: 360px;
+    padding: $space-md;
+  }
+
+  .success-icon {
+    width: 50px;
+  }
+}
+
+
+@include respond(mobile) {
+  .login-success-box {
+    width: 85%;
+    max-width: 300px;
+    padding: $space-sm;
+  }
+
+  .success-icon {
+    width: 40px;
+  }
+
+  .success-message {
+    font-size: $font-size-sm;
+    line-height: 1.4;
+  }
+}
