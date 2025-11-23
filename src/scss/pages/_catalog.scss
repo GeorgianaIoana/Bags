@@ -198,6 +198,8 @@
   .filter-content {
     flex-direction: column;
     gap: $space-lg;
+    padding-top:10px;
+    padding-bottom:10px;
   }
   .filter-actions {
     max-width: 900px;
@@ -206,11 +208,6 @@
     margin-left: auto;
     margin-right: auto;
   } 
-  .filter-content{
-    padding-top:10px;
-    padding-bottom:10px;
-  }
-
    .filter-group select {
     width: 90%;
   }
