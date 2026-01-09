@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run compile:sass",
-  "outputDirectory": "src",
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "devCommand": "npm run dev"
 }
