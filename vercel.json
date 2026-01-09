@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run compile:sass",
+  "outputDirectory": "src",
+  "devCommand": "npm run dev"
+}
