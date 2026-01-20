@@ -9,7 +9,9 @@ export function updateCartCount() {
     }
 }
 
-export function addProductToCart(product, selectedSize, selectedColor, quantity=1) {
+export async function addProductToCart(product, selectedSize, selectedColor, quantity=1) {
+    const { showSuccess } = await import('./notifications.js');
+    
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     const cartItem = {
@@ -41,7 +43,7 @@ export function addProductToCart(product, selectedSize, selectedColor, quantity=
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
 
-    alert(`${product.name} added to cart successfully!`);
+    showSuccess(`${product.name} added to cart successfully!`);
 }
 
 export function renderProductsSection(data, includes, selector, buttonText, buttonOnClick) {
@@ -217,6 +219,49 @@ document.addEventListener("DOMContentLoaded", () => {
                         burger.classList.toggle("active");
                         nav.classList.toggle("active");
                     });
+                }
+
+                // Dropdown functionality
+                const dropdown = headerContainer.querySelector(".dropdown");
+                if (dropdown) {
+                    const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+                    const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+
+                    dropdownToggle.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        dropdown.classList.toggle("active");
+                    });
+
+                    // Close dropdown when clicking outside
+                    document.addEventListener("click", (e) => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+
+                    // Random product link
+                    const randomProductLink = headerContainer.querySelector("#random-product-link");
+                    if (randomProductLink) {
+                        randomProductLink.addEventListener("click", async (e) => {
+                            e.preventDefault();
+                            try {
+                                const res = await fetch("../assets/data.json");
+                                const json = await res.json();
+                                const products = json.data;
+                                
+                                if (products && products.length > 0) {
+                                    const randomIndex = Math.floor(Math.random() * products.length);
+                                    const randomProduct = products[randomIndex];
+                                    window.location.href = `/html/product-details.html?id=${randomProduct.id}`;
+                                } else {
+                                    window.location.href = "/html/product-details.html";
+                                }
+                            } catch (err) {
+                                console.error("Error loading products:", err);
+                                window.location.href = "/html/product-details.html";
+                            }
+                        });
+                    }
                 }
 
 

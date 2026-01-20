@@ -12,6 +12,8 @@
 @use "./pages/cart";
 @use "base/fonts" as *;
 @use "./components/product-card";
+@use "./components/notifications";
+@use "./components/custom-dropdown";
 
 body {
   padding-top:$space-m;

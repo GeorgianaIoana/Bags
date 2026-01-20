@@ -16,7 +16,7 @@ function renderCart(cart) {
 
     if (cart.length === 0) {
         cartBody.innerHTML =
-            '<tr><td colspan="6" class="cart-empty-message" style="padding:20px;text-align:center; margin-right:auto;">Your cart has no items at the moment.<br> Please visit the catalog to continue shopping.</td></tr>';
+            '<tr><td colspan="6" class="cart-empty-message" style="display: block; width: 100%;">Your cart has no items at the moment.<br> Please visit the catalog to continue shopping.</td></tr>';
         summaryBox.style.display = "none";
         clearCartBtn.style.display = "none";
         return;
@@ -138,7 +138,7 @@ clearCartBtn.addEventListener("click", () => {
     updateCartCount();
 
     cartBody.innerHTML =
-        '<tr><td colspan="6" style="padding:20px;text-align:center;">Your cart has no items at the moment. Please visit the catalog to continue shopping.</td></tr>';
+        '<tr><td colspan="6" class="cart-empty-message" style="display: block; width: 100%;">Your cart has no items at the moment. Please visit the catalog to continue shopping.</td></tr>';
 
     summaryBox.style.display = "none";
     clearCartBtn.style.display = "none";

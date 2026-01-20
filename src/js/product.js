@@ -2,6 +2,8 @@ import {
     addProductToCart,
     renderProductsSection
 } from './main.js';
+import { showError, showWarning } from './notifications.js';
+import { initCustomDropdowns } from './custom-dropdown.js';
 
 
 const mainImageDiv = document.getElementById('main-image');
@@ -88,6 +90,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         productPrice.textContent = `$${product.price}`;
         reviewProductTitle.textContent = '1 review for ' + product.name;
 
+        setTimeout(() => {
+            initCustomDropdowns();
+        }, 100);
 
     } catch (err) {
         console.error('Error loading product details:', err);
@@ -118,7 +123,7 @@ addToCartBtn.addEventListener('click', () => {
         selectedColor === 'Choose option' ||
         selectedCategory === 'Choose option'
     ) {
-        alert('Please select size, color, and category.');
+        showWarning('Please select size, color, and category.');
         return;
     }
     addProductToCart(product, selectedSize, selectedColor, quantity);
@@ -172,19 +177,19 @@ submitBtn.addEventListener('click', (e) => {
 
     const atLeastOneStar = document.querySelector('.star.filled');
     if (!atLeastOneStar) {
-        alert("Please select at least one star rating.");
+        showWarning("Please select at least one star rating.");
         return;
     }
 
     if (!name || !email || !review) {
-        alert("Please complete Name, Email and Review before submitting.");
+        showWarning("Please complete Name, Email and Review before submitting.");
         return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email.");
+        showError("Please enter a valid email.");
         return;
     }
 

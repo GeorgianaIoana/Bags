@@ -205,7 +205,7 @@ function renderBestSets() {
         .join('');
 }
 
-function performSearch(query) {
+async function performSearch(query) {
     if (!query.trim()) return;
 
     const product = products.find(p =>
@@ -215,7 +215,8 @@ function performSearch(query) {
     if (product) {
         window.location.href = `/html/product-details.html?id=${product.id}`;
     } else {
-        alert('No product found with that name.');
+        const { showWarning } = await import('./notifications.js');
+        showWarning('No product found with that name.');
     }
 }
 

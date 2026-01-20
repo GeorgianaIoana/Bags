@@ -201,6 +201,79 @@
   }
 }
 
+// Dropdown styles
+.header-nav {
+  .dropdown {
+    position: relative;
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      .dropdown-arrow {
+        width: 12px;
+        height: 12px;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &:hover .dropdown-toggle .dropdown-arrow,
+    &.active .dropdown-toggle .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: $color-light;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      padding: 8px 0;
+      min-width: 160px;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      margin: 0;
+      gap: 0;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        a {
+          display: block;
+          padding: 12px 20px;
+          color: $color-dark;
+          text-decoration: none;
+          font-weight: $font-weight-bold;
+          font-size: 16px;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+
+          &:hover {
+            color: $color-primary;
+            padding-left: 24px;
+          }
+        }
+      }
+    }
+
+    &:hover .dropdown-menu,
+    &.active .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+}
+
 .header-burger {
   display: none;
   flex-direction: column;
@@ -372,6 +445,47 @@
 
       &.active {
         color: $color-primary;
+      }
+    }
+
+    // Mobile dropdown styles
+    .dropdown {
+      width: 100%;
+
+      .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        background: transparent;
+        padding: 8px 0 8px 20px;
+        margin-top: 8px;
+        border-left: 2px solid $color-primary;
+        display: none;
+
+        &.active {
+          display: block;
+        }
+
+        li a {
+          padding: 8px 0;
+          font-size: $font-size-sm;
+
+          &:hover {
+            padding-left: 0;
+            background: transparent;
+          }
+        }
+      }
+
+      &.active .dropdown-menu {
+        display: block;
       }
     }
   }
