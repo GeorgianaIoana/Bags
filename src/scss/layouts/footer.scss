@@ -280,10 +280,10 @@
     .footer-bottom {
       text-align: center;
       color: rgba($color-dark, 0.35);
-      font-size: 14px;
-      padding: 24px 0;
+      font-size: 12px;
+      padding: 6px 0;
       border-top: 1px solid rgba($color-dark, 0.1);
-      margin-top: $space-xl;
+      margin-top: $space-md;
     }
 
     @include respond(tablet) {

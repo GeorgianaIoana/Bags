@@ -228,8 +228,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     const dropdownMenu = dropdown.querySelector(".dropdown-menu");
 
                     dropdownToggle.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        dropdown.classList.toggle("active");
+                        // Navigate to catalog page
+                        window.location.href = dropdownToggle.getAttribute("href");
                     });
 
                     // Close dropdown when clicking outside
